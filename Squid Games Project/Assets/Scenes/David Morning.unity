@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6834c4da0210176489d9a12efdee0bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimitItemPickup: 180
+  timeLimitItemPickup: 5
   itemPickup: {fileID: 1521514386}
   timerText: {fileID: 1601866089}
   resultText: {fileID: 1589177078}

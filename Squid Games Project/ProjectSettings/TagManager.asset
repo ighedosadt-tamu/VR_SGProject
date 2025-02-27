@@ -11,6 +11,7 @@ TagManager:
   - enter_door3
   - enter_door4
   - item
+  - Coffee
   layers:
   - Default
   - TransparentFX
