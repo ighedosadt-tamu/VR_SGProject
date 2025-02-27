@@ -10,6 +10,7 @@ TagManager:
   - enter_door2
   - enter_door3
   - enter_door4
+  - item
   layers:
   - Default
   - TransparentFX
