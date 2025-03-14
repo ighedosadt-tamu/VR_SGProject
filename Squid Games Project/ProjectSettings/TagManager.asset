@@ -12,6 +12,7 @@ TagManager:
   - enter_door4
   - item
   - Coffee
+  - Reflective Object
   layers:
   - Default
   - TransparentFX
