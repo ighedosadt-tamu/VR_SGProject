@@ -22,7 +22,7 @@ public class ReflectRay : MonoBehaviour
     {
         if (stoppedBeingHit)
         {
-            StopRayHit();
+            //StopRayHit();
         }
     }
 
