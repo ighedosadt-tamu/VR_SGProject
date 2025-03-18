@@ -11,7 +11,8 @@ public class RayInteraction : MonoBehaviour
     [Description("Grab button to select an object")]
     public InputActionProperty selectButton;
     [Header("Locomotion Providers to Disable")]
-    public GameObject Locomotion;
+    public ContinuousMoveProviderBase cmp;
+    public ContinuousTurnProviderBase ctp;
     [Header("Line Render Settings")]
     public Transform controllerOrigin;
     public float maxDistance = 10f;
@@ -34,12 +35,13 @@ public class RayInteraction : MonoBehaviour
         {
             lineRenderer.SetPosition(0, controllerOrigin.position);
             lineRenderer.SetPosition(1, hit.point);
-            
+            lineRenderer.startColor = Color.red;
         }
         else
         {
             lineRenderer.SetPosition(0, controllerOrigin.position);
             lineRenderer.SetPosition(1, controllerOrigin.position + controllerOrigin.forward * maxDistance);
+            lineRenderer.startColor = Color.green;
         }
 
         if (selectButton.action.WasPressedThisFrame())
@@ -76,6 +78,14 @@ public class RayInteraction : MonoBehaviour
 
     private void ToggleLocomotion(bool toggle)
     {
-        Locomotion.SetActive(toggle);
+        if(!toggle){
+            ctp.turnSpeed = 0;
+            cmp.moveSpeed = 0;
+        }
+        else{
+            ctp.turnSpeed = 60;
+            cmp.moveSpeed = 3;
+        }
+        
     }
 }

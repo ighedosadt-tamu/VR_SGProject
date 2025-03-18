@@ -21,7 +21,7 @@ public class ObjectTransformation : MonoBehaviour
         Vector2 left_stick = leftJoystick.action.ReadValue<Vector2>();
         Vector2 right_stick = rightJoystick.action.ReadValue<Vector2>();
 
-        Debug.Log(left_stick);
+       // Debug.Log(left_stick);
         // Translate (XZ plane) with LEFT stick
         Vector3 current_position = transform.position;
         Vector3 target = new Vector3(current_position.x + left_stick.y, current_position.y, current_position.z + (left_stick.x * -1));

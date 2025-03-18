@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FireRay : MonoBehaviour
@@ -45,8 +46,10 @@ public class FireRay : MonoBehaviour
 
 
             }
-            else
+
+            else 
             {
+
                 if (prevHitReflectiveObject != null)
                 {
                     if (prevHitReflectiveObject.hasFired)

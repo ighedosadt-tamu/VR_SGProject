@@ -8,6 +8,9 @@ public class ReflectRay : MonoBehaviour
     public LineRenderer lineRenderer;
     public Transform reflectionPoint;
 
+    [SerializeField]
+    public InteractionGM gameManager;
+    public TMPro.TextMeshProUGUI resultText;
 
     public bool stoppedBeingHit = false;
     public bool hasFired = false;
@@ -47,6 +50,19 @@ public class ReflectRay : MonoBehaviour
                 {
                     reflectRay.OnRayHit();
                     prevHitReflectiveObject = reflectRay;
+                }
+            }
+            else if (hitObject.tag == "levelend"){
+                gameManager.levelDone = true;
+                gameManager.CheckItemPickupTimeLimit();
+                
+                if (prevHitReflectiveObject != null)
+                {
+                    if (prevHitReflectiveObject.hasFired)
+                    {
+                        prevHitReflectiveObject.StopRayHit();
+                    }
+                    prevHitReflectiveObject.stoppedBeingHit = true;
                 }
             }
             else
