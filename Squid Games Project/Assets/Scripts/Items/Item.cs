@@ -9,7 +9,7 @@ public class Item : MonoBehaviour
     public XRGrabInteractable grabInteractable;
     public float desroyDelay = 0.3f;
     public ItemPickup itemPickup;
-    public GameManager gameManager;
+    public NavigationGM navigationGM;
     public ContinuousMoveProviderBase mp;
     public ContinuousTurnProviderBase tp;
     public void speedUp(){
@@ -29,7 +29,7 @@ public class Item : MonoBehaviour
 
     private void OnGrabbed(SelectEnterEventArgs args)
     {
-        if (!gameManager.RanOutOfTime())
+        if (!navigationGM.RanOutOfTime())
         {
             itemPickup.IncrementItemsCollected();
             Debug.Log("Item collected!");
