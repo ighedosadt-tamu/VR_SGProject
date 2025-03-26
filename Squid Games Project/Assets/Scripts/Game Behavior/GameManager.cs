@@ -5,12 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     UnityEditor.EditorBuildSettingsScene[] scenes;
     private List<string> scenePaths = new List<string>();
     
     // Start is called before the first frame update
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); // Keeps it alive between scenes
+        }
+        else
+        {
+            Destroy(gameObject); // Destroys duplicates
+        }
+
         scenePaths.Clear();
         scenes = UnityEditor.EditorBuildSettings.scenes;
         int scence_count = scenes.Length;
@@ -36,4 +48,8 @@ public class GameManager : MonoBehaviour
         return scenePaths;
     }
     
+    public void LoadScene(int scene_index)
+    {
+        SceneManager.LoadSceneAsync(scenePaths[scene_index]);
+    }
 }
