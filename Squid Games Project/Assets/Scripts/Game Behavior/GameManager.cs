@@ -1,71 +1,55 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public float timeLimitItemPickup = 180f; // Time limit in seconds to pick up items
-    public ItemPickup itemPickup;
-    public TMPro.TextMeshProUGUI timerText;
-    public TMPro.TextMeshProUGUI resultText;
+    public static GameManager instance;
+
+    UnityEditor.EditorBuildSettingsScene[] scenes;
+    private List<string> scenePaths = new List<string>();
     
-
-    private bool collectedItems = false;
-    private float timeRemaining;
-
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        timeRemaining = timeLimitItemPickup;
-        StartCoroutine(CountdownTimer());
-    }
-
-    IEnumerator CountdownTimer()
-    {
-        while (timeRemaining > 0 && !collectedItems)
+        if (instance == null)
         {
-            UpdateTimerDisplay();
-            timeRemaining -= 1f;
-            yield return new WaitForSeconds(1f);
-            
+            instance = this;
+            DontDestroyOnLoad(gameObject); // Keeps it alive between scenes
+        }
+        else
+        {
+            Destroy(gameObject); // Destroys duplicates
         }
 
-            
-        if (!collectedItems)
+        scenePaths.Clear();
+        scenes = UnityEditor.EditorBuildSettings.scenes;
+        int scence_count = scenes.Length;
+        Debug.Log(scence_count);
+        Debug.Log(SceneManager.loadedSceneCount);
+
+        for (int i = 0; i < scence_count; i++)
         {
-            UpdateTimerDisplay();
-            CheckItemPickupTimeLimit();
+            // Debug.Log(scenes[i].path);
+            int assets_path_length = 7; // Assets/         
+            int extension_path_length = 6; // .unity
+            string scene_path = scenes[i].path.Substring(assets_path_length, scenes[i].path.Length - (extension_path_length + assets_path_length));
+            scenePaths.Add(scene_path);
+
+            // SceneManager.LoadSceneAsync(scene_path);
         }
-        
-       
+
+
     }
 
-    private void UpdateTimerDisplay()
+    public List<string> GetScenePaths()
     {
-        int minutes = Mathf.FloorToInt(timeRemaining / 60);
-        int seconds = Mathf.FloorToInt(timeRemaining % 60);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        return scenePaths;
     }
-
-    public void CheckItemPickupTimeLimit()
+    
+    public void LoadScene(int scene_index)
     {
-
-        if (itemPickup.GetItemsCollected() < itemPickup.totalItems)
-        {
-            Debug.Log("You didn't collect all of the items.");
-            resultText.text = "You didn't collect all of the items.";
-        }
-        else if (itemPickup.GetItemsCollected() == itemPickup.totalItems)
-        {
-            collectedItems = true;
-            Debug.Log("Cognratualions! All items collected!");
-            resultText.text = "Congratulations! All items collected!";
-            
-        }
-    }
-
-    public bool RanOutOfTime()
-    {
-        return timeRemaining <= 0;
+        SceneManager.LoadSceneAsync(scenePaths[scene_index]);
     }
 }

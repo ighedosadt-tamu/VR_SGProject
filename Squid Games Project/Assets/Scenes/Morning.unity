@@ -7475,7 +7475,7 @@ MonoBehaviour:
   grabInteractable: {fileID: 344232377}
   desroyDelay: 1
   itemPickup: {fileID: 1538852833}
-  gameManager: {fileID: 1429839640}
+  navigationGM: {fileID: 0}
   mp: {fileID: 0}
   tp: {fileID: 0}
 --- !u!114 &344232377
@@ -13802,7 +13802,7 @@ MonoBehaviour:
   grabInteractable: {fileID: 548893949}
   desroyDelay: 1
   itemPickup: {fileID: 1538852833}
-  gameManager: {fileID: 1429839640}
+  navigationGM: {fileID: 0}
   mp: {fileID: 0}
   tp: {fileID: 0}
 --- !u!114 &548893949
@@ -14653,7 +14653,7 @@ MonoBehaviour:
   grabInteractable: {fileID: 591363750}
   desroyDelay: 1
   itemPickup: {fileID: 1538852833}
-  gameManager: {fileID: 1429839640}
+  navigationGM: {fileID: 0}
   mp: {fileID: 0}
   tp: {fileID: 0}
 --- !u!114 &591363750
@@ -29738,7 +29738,7 @@ MonoBehaviour:
   grabInteractable: {fileID: 1210247307}
   desroyDelay: 1
   itemPickup: {fileID: 1538852833}
-  gameManager: {fileID: 1429839640}
+  navigationGM: {fileID: 0}
   mp: {fileID: 1785105680}
   tp: {fileID: 0}
 --- !u!114 &1210247307
@@ -36980,7 +36980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalItems: 4
   resultText: {fileID: 329782113}
-  gameManager: {fileID: 1429839640}
+  navigationGM: {fileID: 0}
 --- !u!114 &1538852834
 MonoBehaviour:
   m_ObjectHideFlags: 0

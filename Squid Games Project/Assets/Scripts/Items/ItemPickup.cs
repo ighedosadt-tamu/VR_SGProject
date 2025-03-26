@@ -9,7 +9,7 @@ public class ItemPickup : MonoBehaviour
     private int itemsCollected = 0; // Number of items collected
     public TMPro.TextMeshProUGUI resultText;
 
-    public GameManager gameManager;
+    public NavigationGM navigationGM;
     public void IncrementItemsCollected()
     {
         itemsCollected++;
@@ -17,7 +17,7 @@ public class ItemPickup : MonoBehaviour
         if (itemsCollected == totalItems)
         {
             Debug.Log("All items collected!");
-            gameManager.CheckItemPickupTimeLimit();
+            navigationGM.CheckItemPickupTimeLimit();
         }
         else
         {
