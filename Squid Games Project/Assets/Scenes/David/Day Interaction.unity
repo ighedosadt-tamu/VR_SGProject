@@ -20066,7 +20066,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 8821471977372094226, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   cmp: {fileID: 1426185824}
-  ctp: {fileID: 0}
+  ctp: {fileID: 1426185817}
   controllerOrigin: {fileID: 1756917117}
   maxDistance: 5
   lineRenderer: {fileID: 1756917122}
