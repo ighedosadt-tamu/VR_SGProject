@@ -5,11 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
-
-    UnityEditor.EditorBuildSettingsScene[] scenes;
-    private List<string> scenePaths = new List<string>();
+    public List<GameObject> portals;
     
+
+    public static GameManager instance;
+    private List<string> sceneNames = new List<string>();
+    private Dictionary<string, GameObject> nameToPortal = new Dictionary<string, GameObject>();
+
+    public enum State
+    {
+        completedNavigation,
+        completedInteraction,
+        completedPassthrough,
+        completedHaptics    
+    }
+    private bool[] currentState = new bool[System.Enum.GetNames(typeof(State)).Length];
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -17,39 +28,81 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject); // Keeps it alive between scenes
+            
         }
         else
         {
             Destroy(gameObject); // Destroys duplicates
         }
 
-        scenePaths.Clear();
-        scenes = UnityEditor.EditorBuildSettings.scenes;
-        int scence_count = scenes.Length;
-        Debug.Log(scence_count);
-        Debug.Log(SceneManager.loadedSceneCount);
-
-        for (int i = 0; i < scence_count; i++)
+        sceneNames.Clear();
+        int sceneCount = SceneManager.sceneCountInBuildSettings;
+        for (int i = 0; i < sceneCount; i++)
         {
-            // Debug.Log(scenes[i].path);
-            int assets_path_length = 7; // Assets/         
-            int extension_path_length = 6; // .unity
-            string scene_path = scenes[i].path.Substring(assets_path_length, scenes[i].path.Length - (extension_path_length + assets_path_length));
-            scenePaths.Add(scene_path);
-
-            // SceneManager.LoadSceneAsync(scene_path);
+            string path = SceneUtility.GetScenePathByBuildIndex(i);
+            string name = System.IO.Path.GetFileNameWithoutExtension(path);
+            sceneNames.Add(name);
         }
+        LoadPortalDictionary();
 
-
+        
     }
 
-    public List<string> GetScenePaths()
+    
+
+    public List<string> GetSceneNames()
     {
-        return scenePaths;
+        return sceneNames;
     }
     
     public void LoadScene(int scene_index)
     {
-        SceneManager.LoadSceneAsync(scenePaths[scene_index]);
+         if (scene_index >= 0 && scene_index < sceneNames.Count)
+        {
+            SceneManager.LoadSceneAsync(scene_index);
+        }
+        else
+        {
+            Debug.LogWarning("Invalid scene index!");
+        }
+    }
+
+    public bool[] GetCurrentState() { return currentState; }
+    public void SetState(State state, bool status)
+    {
+        int index = (int)state;
+        if (index >= 0 && index < currentState.Length)
+        {
+            currentState[index] = status;
+        }
+        else
+        {
+            Debug.LogWarning("Invalid state index");
+        }
+    }
+
+    public bool IsStateCompleted(State state)
+    {
+        int index = (int)state;
+        if (index >= 0 && index < currentState.Length)
+        {
+            return currentState[index];
+        }
+        Debug.LogWarning("Invalid State");
+        return false;
+    }
+
+    public void LoadPortalDictionary()
+    {
+        nameToPortal.Clear();
+        foreach (GameObject item in portals)
+        {
+            nameToPortal.Add(item.name, item);
+        }
+    }
+
+    public void ProgressState()
+    {
+
     }
 }

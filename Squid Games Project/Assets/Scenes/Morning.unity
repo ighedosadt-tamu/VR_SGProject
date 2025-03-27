@@ -5824,6 +5824,94 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285498010}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &288657487
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2904668294041516045, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_Name
+      value: Lobby Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.214
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.279
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745491691093442898, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: navigationGM
+      value: 
+      objectReference: {fileID: 1429839639}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6031363629808366450, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 288657490}
+  m_SourcePrefab: {fileID: 100100000, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+--- !u!1 &288657488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6031363629808366450, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+  m_PrefabInstance: {fileID: 288657487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &288657489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2904668294041516045, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+  m_PrefabInstance: {fileID: 288657487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &288657490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288657488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4de84730cd83954cafa632d9a0fed21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentRoomPortalName: Morning Portal
+  navigationGM: {fileID: 1429839639}
 --- !u!1 &296556928
 GameObject:
   m_ObjectHideFlags: 0
@@ -7475,7 +7563,7 @@ MonoBehaviour:
   grabInteractable: {fileID: 344232377}
   desroyDelay: 1
   itemPickup: {fileID: 1538852833}
-  navigationGM: {fileID: 0}
+  navigationGM: {fileID: 1429839640}
   mp: {fileID: 0}
   tp: {fileID: 0}
 --- !u!114 &344232377
@@ -13802,7 +13890,7 @@ MonoBehaviour:
   grabInteractable: {fileID: 548893949}
   desroyDelay: 1
   itemPickup: {fileID: 1538852833}
-  navigationGM: {fileID: 0}
+  navigationGM: {fileID: 1429839640}
   mp: {fileID: 0}
   tp: {fileID: 0}
 --- !u!114 &548893949
@@ -14653,7 +14741,7 @@ MonoBehaviour:
   grabInteractable: {fileID: 591363750}
   desroyDelay: 1
   itemPickup: {fileID: 1538852833}
-  navigationGM: {fileID: 0}
+  navigationGM: {fileID: 1429839640}
   mp: {fileID: 0}
   tp: {fileID: 0}
 --- !u!114 &591363750
@@ -29738,7 +29826,7 @@ MonoBehaviour:
   grabInteractable: {fileID: 1210247307}
   desroyDelay: 1
   itemPickup: {fileID: 1538852833}
-  navigationGM: {fileID: 0}
+  navigationGM: {fileID: 1429839640}
   mp: {fileID: 1785105680}
   tp: {fileID: 0}
 --- !u!114 &1210247307
@@ -34793,7 +34881,7 @@ GameObject:
   - component: {fileID: 1429839641}
   - component: {fileID: 1429839640}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: Navigation Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34815,6 +34903,8 @@ MonoBehaviour:
   itemPickup: {fileID: 1538852833}
   timerText: {fileID: 509091861}
   resultText: {fileID: 329782113}
+  lobbyPortal: {fileID: 288657489}
+  completedLevel: 0
 --- !u!4 &1429839641
 Transform:
   m_ObjectHideFlags: 0
@@ -36961,7 +37051,7 @@ GameObject:
   - component: {fileID: 1538852833}
   m_Layer: 0
   m_Name: XR Origin (XR Rig)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36980,7 +37070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalItems: 4
   resultText: {fileID: 329782113}
-  navigationGM: {fileID: 0}
+  navigationGM: {fileID: 1429839640}
 --- !u!114 &1538852834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37007,7 +37097,7 @@ Transform:
   m_GameObject: {fileID: 1538852832}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -13.95, y: 0, z: 0}
+  m_LocalPosition: {x: -12.206, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43297,7 +43387,6 @@ GameObject:
   - component: {fileID: 1785105682}
   - component: {fileID: 1785105681}
   - component: {fileID: 1785105680}
-  - component: {fileID: 1785105679}
   m_Layer: 0
   m_Name: Locomotion System
   m_TagString: Untagged
@@ -43305,44 +43394,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1785105679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785105678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 919e39492806b334982b6b84c90dd927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_System: {fileID: 1785105683}
-  m_TurnSpeed: 60
-  m_LeftHandTurnAction:
-    m_UseReference: 0
-    m_Action:
-      m_Name: Left Hand Turn
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 3c41b777-d08e-46b5-8851-86b5c1102ca1
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 0}
-  m_RightHandTurnAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Right Hand Turn
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: f651d59f-98fa-4ec1-9329-78f90b4069b4
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!114 &1785105680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43393,7 +43444,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785105678}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2213c36610e3b1c4bbf886810ed9db12, type: 3}
   m_Name: 
@@ -43417,7 +43468,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_RightHandSnapTurnAction:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
       m_Name: Right Hand Snap Turn
       m_Type: 0
@@ -43427,7 +43478,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 0}
+    m_Reference: {fileID: -8525429354371678379, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!114 &1785105682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53123,3 +53174,4 @@ SceneRoots:
   - {fileID: 591363755}
   - {fileID: 1429839641}
   - {fileID: 1413779598}
+  - {fileID: 288657487}

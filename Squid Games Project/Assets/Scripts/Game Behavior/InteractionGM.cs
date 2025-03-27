@@ -8,14 +8,16 @@ public class InteractionGM : MonoBehaviour
     public ItemPickup itemPickup;
     public TMPro.TextMeshProUGUI timerText;
     public TMPro.TextMeshProUGUI resultText;
+    public GameObject lobbyPortal;
 
     public bool levelDone = false;
     private bool roomDone = false;
     private float timeRemaining;
-
+    public bool completedLevel = false;
     // Start is called before the first frame update
     void Start()
     {
+        lobbyPortal.SetActive(false);
         timeRemaining = timeLimit;
         StartCoroutine(CountdownTimer());
     }
@@ -49,18 +51,19 @@ public class InteractionGM : MonoBehaviour
 
     public void CheckItemPickupTimeLimit()
     {
-
+        lobbyPortal.SetActive(true);
         if (!levelDone)
         {
             Debug.Log("You didn't finish the puzzle.");
             resultText.text = "You didn't finish the puzzle.";
+            completedLevel = false;
         }
         else
         {
             roomDone = true;
             Debug.Log("Cognratualions! You fixed the rift!");
             resultText.text = "Congratulations! You fixed the rift!";
-            
+            completedLevel = true;
         }
     }
 

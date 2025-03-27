@@ -6217,6 +6217,90 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7ab4b0c73ea782849a9175b8fd9bab84, type: 3}
   m_PrefabInstance: {fileID: 549203056}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &556742922
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2904668294041516045, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_Name
+      value: Lobby Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000047683716
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.70317537
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7110164
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90.635
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490516090411761413, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6031363629808366450, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 556742924}
+  m_SourcePrefab: {fileID: 100100000, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+--- !u!1 &556742923 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6031363629808366450, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+  m_PrefabInstance: {fileID: 556742922}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &556742924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556742923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b01bb667d51f9964e892b233233416cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentRoomPortalName: Day Portal
+  interactionGM: {fileID: 2127098822}
+--- !u!1 &556742925 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2904668294041516045, guid: 675f89ed8c0809a458e4b34c4b796480, type: 3}
+  m_PrefabInstance: {fileID: 556742922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &559980942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14190,7 +14274,7 @@ GameObject:
   - component: {fileID: 1254082701}
   m_Layer: 0
   m_Name: XR Origin (XR Rig)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16444,7 +16528,6 @@ GameObject:
   - component: {fileID: 1426185820}
   - component: {fileID: 1426185819}
   - component: {fileID: 1426185824}
-  - component: {fileID: 1426185815}
   - component: {fileID: 1426185817}
   m_Layer: 0
   m_Name: Locomotion System
@@ -16453,44 +16536,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1426185815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426185814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 919e39492806b334982b6b84c90dd927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_System: {fileID: 1426185819}
-  m_TurnSpeed: 60
-  m_LeftHandTurnAction:
-    m_UseReference: 0
-    m_Action:
-      m_Name: Left Hand Turn
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: 3c41b777-d08e-46b5-8851-86b5c1102ca1
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 0}
-  m_RightHandTurnAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Right Hand Turn
-      m_Type: 0
-      m_ExpectedControlType: Vector2
-      m_Id: f651d59f-98fa-4ec1-9329-78f90b4069b4
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!114 &1426185817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16498,7 +16543,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426185814}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2213c36610e3b1c4bbf886810ed9db12, type: 3}
   m_Name: 
@@ -16522,7 +16567,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_RightHandSnapTurnAction:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
       m_Name: Right Hand Snap Turn
       m_Type: 0
@@ -16532,7 +16577,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: 0}
+    m_Reference: {fileID: -8525429354371678379, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!114 &1426185819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20021,7 +20066,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 8821471977372094226, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   cmp: {fileID: 1426185824}
-  ctp: {fileID: 1426185815}
+  ctp: {fileID: 0}
   controllerOrigin: {fileID: 1756917117}
   maxDistance: 5
   lineRenderer: {fileID: 1756917122}
@@ -24662,7 +24707,7 @@ GameObject:
   - component: {fileID: 2127098824}
   - component: {fileID: 2127098825}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: Interaction Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24695,11 +24740,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d39ef3f1586232d4ab65c86152301911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 180
+  timeLimit: 300
   itemPickup: {fileID: 0}
   timerText: {fileID: 564407663}
   resultText: {fileID: 1481580189}
+  lobbyPortal: {fileID: 556742925}
   levelDone: 0
+  completedLevel: 0
 --- !u!1001 &2136037814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25012,3 +25059,4 @@ SceneRoots:
   - {fileID: 1426185820}
   - {fileID: 2127098824}
   - {fileID: 469412550}
+  - {fileID: 556742922}

@@ -9,15 +9,19 @@ public class NavigationGM : MonoBehaviour
     public TMPro.TextMeshProUGUI timerText;
     public TMPro.TextMeshProUGUI resultText;
     
+    public GameObject lobbyPortal;
 
     private bool collectedItems = false;
     private float timeRemaining;
+    public bool completedLevel;
 
     // Start is called before the first frame update
     void Start()
     {
+        lobbyPortal.SetActive(false);
         timeRemaining = timeLimitItemPickup;
         StartCoroutine(CountdownTimer());
+        completedLevel = false;
     }
 
     IEnumerator CountdownTimer()
@@ -49,21 +53,25 @@ public class NavigationGM : MonoBehaviour
 
     public void CheckItemPickupTimeLimit()
     {
-
+       
+        lobbyPortal.SetActive(true);
         if (itemPickup.GetItemsCollected() < itemPickup.totalItems)
         {
             Debug.Log("You didn't collect all of the items.");
             resultText.text = "You didn't collect all of the items.";
+            completedLevel = false;
         }
         else if (itemPickup.GetItemsCollected() == itemPickup.totalItems)
         {
             collectedItems = true;
             Debug.Log("Cognratualions! All items collected!");
             resultText.text = "Congratulations! All items collected!";
+            completedLevel = true;
             
         }
-    }
 
+    }
+    
     public bool RanOutOfTime()
     {
         return timeRemaining <= 0;
