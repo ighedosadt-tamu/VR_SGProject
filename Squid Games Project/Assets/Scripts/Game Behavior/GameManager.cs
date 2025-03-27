@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
     {
          if (scene_index >= 0 && scene_index < sceneNames.Count)
         {
+            Debug.Log(scene_index);
             SceneManager.LoadSceneAsync(scene_index);
         }
         else
