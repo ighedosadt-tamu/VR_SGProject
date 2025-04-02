@@ -2,38 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractionGM : MonoBehaviour
+public class HapticGM : MonoBehaviour
 {
-    public float timeLimit = 180f; // Time limit in seconds to pick up items
-    public ItemPickup itemPickup;
+    public float timeLimitItemPickup = 180f; // Time limit in seconds to pick up items
     public TMPro.TextMeshProUGUI timerText;
     public TMPro.TextMeshProUGUI resultText;
+    
     public GameObject lobbyPortal;
 
-    public bool levelDone = false;
-    private bool roomDone = false;
     private float timeRemaining;
     public bool completedLevel = false;
+
     // Start is called before the first frame update
     void Start()
     {
         lobbyPortal.SetActive(false);
-        timeRemaining = timeLimit;
+        timeRemaining = timeLimitItemPickup;
         StartCoroutine(CountdownTimer());
+        completedLevel = false;
     }
 
     IEnumerator CountdownTimer()
     {
-        while (timeRemaining > 0 && !roomDone)
+        while (timeRemaining > 0 && !completedLevel)
         {
             UpdateTimerDisplay();
-            timeRemaining -= 1f;     
+            timeRemaining -= 1f;
             yield return new WaitForSeconds(1f);
             
         }
 
             
-        if (!roomDone)
+        if (!completedLevel)
         {
             UpdateTimerDisplay();
             CheckItemPickupTimeLimit();
@@ -51,22 +51,19 @@ public class InteractionGM : MonoBehaviour
 
     public void CheckItemPickupTimeLimit()
     {
+       
         lobbyPortal.SetActive(true);
-        if (!levelDone)
+        if (!completedLevel)
         {
-            Debug.Log("You didn't finish the puzzle.");
-            resultText.text = "You didn't finish the puzzle.";
-            completedLevel = false;
+            resultText.text = "You ran out of time.";
         }
         else
         {
-            roomDone = true;
-            Debug.Log("Cognratualions! You fixed the rift!");
-            resultText.text = "Congratulations! You fixed the rift!";
-            completedLevel = true;
+            resultText.text = "You escaped the maze!";
         }
-    }
 
+    }
+    
     public bool RanOutOfTime()
     {
         return timeRemaining <= 0;

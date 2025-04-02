@@ -12,7 +12,7 @@ public class RayInteraction : MonoBehaviour
     public InputActionProperty selectButton;
     [Header("Locomotion Providers to Disable")]
     public ContinuousMoveProviderBase cmp;
-    public ContinuousTurnProviderBase ctp;
+    public SnapTurnProviderBase ctp;
     [Header("Line Render Settings")]
     public Transform controllerOrigin;
     public float maxDistance = 10f;
@@ -79,11 +79,11 @@ public class RayInteraction : MonoBehaviour
     private void ToggleLocomotion(bool toggle)
     {
         if(!toggle){
-            ctp.turnSpeed = 0;
+            ctp.turnAmount = 0;
             cmp.moveSpeed = 0;
         }
         else{
-            ctp.turnSpeed = 60;
+            ctp.turnAmount = 45;
             cmp.moveSpeed = 3;
         }
         

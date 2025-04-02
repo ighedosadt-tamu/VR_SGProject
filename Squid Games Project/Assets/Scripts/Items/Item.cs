@@ -14,7 +14,7 @@ public class Item : MonoBehaviour
     public ContinuousTurnProviderBase tp;
     public void speedUp(){
         mp.moveSpeed += 3;
-        tp.turnSpeed += 30;
+        //tp.turnSpeed += 30;
     }
 
     void Awake()
