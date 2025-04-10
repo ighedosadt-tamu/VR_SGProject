@@ -4,60 +4,50 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float speed = 2.0f;
-    Vector3 playerSpeed;
+    [SerializeField] float moveSpeed = 2.0f;
+    [SerializeField] float rotationSpeed = 200f;
     [SerializeField] SceneBehavior sceneBehavior;
-    [SerializeField] List<Material> playerColors = new List<Material>();
-    private int color_index = 0;
-    public GameObject doorPivot;
+    [SerializeField] List<Material> playerColors = new List<Material>(); 
+    public GameObject doorPivot; 
+    
+
     private bool door_closed = false;
+    private Rigidbody rb;
+    private int color_index = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (transform.position.y <= -5f)
-        {
-            sceneBehavior.RestartScene();
-        }
-        
-        if (Input.GetKeyDown("space"))
-        {
-            playerSpeed = GetComponent<Rigidbody>().velocity;
-            GetComponent<Rigidbody>().velocity = new Vector3(playerSpeed.x, speed, playerSpeed.z);
-        }
-
-        if (Input.GetKey("up"))
-        {
-            playerSpeed = GetComponent<Rigidbody>().velocity;
-            GetComponent<Rigidbody>().velocity = new Vector3(playerSpeed.x, playerSpeed.y, speed);
-        }
-
-        if (Input.GetKey("down"))
-        {
-            playerSpeed = GetComponent<Rigidbody>().velocity;
-            GetComponent<Rigidbody>().velocity = new Vector3(playerSpeed.x, playerSpeed.y, -speed);
-        }
-
-        if (Input.GetKey("right"))
-        {
-            playerSpeed = GetComponent<Rigidbody>().velocity;
-            GetComponent<Rigidbody>().velocity = new Vector3(speed, playerSpeed.y, playerSpeed.z);
-        }
-
-        if (Input.GetKey("left"))
-        {
-            playerSpeed = GetComponent<Rigidbody>().velocity;
-            GetComponent<Rigidbody>().velocity = new Vector3(-speed, playerSpeed.y, playerSpeed.z);
-        }
-
+        HandleMovement();
+        HandleRotation();
     }
-    private void OnTriggerEnter(Collider other) {
+
+    void HandleMovement()
+    {
+        float horizontal = Input.GetAxis("Horizontal"); // A/D or Left/Right Arrow
+        float vertical = Input.GetAxis("Vertical");     // W/S or Up/Down Arrow
+
+        Vector3 moveDirection = transform.forward * vertical + transform.right * horizontal;
+        rb.velocity = new Vector3(moveDirection.x * moveSpeed, rb.velocity.y, moveDirection.z * moveSpeed);
+    }
+
+    void HandleRotation()
+    {
+        float mouseX = Input.GetAxis("Mouse X"); // Mouse Left/Right movement
+
+        Vector3 rotation = new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + mouseX * rotationSpeed * Time.fixedDeltaTime, transform.rotation.eulerAngles.z);
+        transform.rotation = Quaternion.Euler(rotation);
+
+        
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
         if (other.gameObject.tag == "levelend")
         {
             if (!door_closed)
@@ -65,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
                 doorPivot.GetComponent<Animation>().Play("DoorClose");
                 door_closed = true;
             }
-            
+
             StartCoroutine(delayEnd());
 
 
