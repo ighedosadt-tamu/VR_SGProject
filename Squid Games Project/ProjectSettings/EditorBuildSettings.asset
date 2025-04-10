@@ -5,18 +5,21 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Exported Scenes/David Lobby.unity
     guid: 1a13d85a5a75945c48c5f5ef297fac3c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Exported Scenes/Morning.unity
     guid: 6a9f380cfee934cfa83b4e0880515aa8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Exported Scenes/Day Interaction.unity
     guid: a3d6915bf2a9a624cb72201f6fbd80b6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Exported Scenes/Night.unity
     guid: 02a29bc0791714d06a92edba73131491
+  - enabled: 1
+    path: Assets/Scenes/David/Passthrough.unity
+    guid: 7cfed9191c3c1a34889aebb8d177b065
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 82ee3ad648e534221b1709ccd9316ede, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: b637829865df50b44988d9b671a8b574, type: 2}
