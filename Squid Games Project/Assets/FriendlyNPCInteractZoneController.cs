@@ -12,11 +12,13 @@ public class FriendlyNPCInteractZoneController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        friendlyNPCController.StartInteraction(true);
+        if (other.gameObject.tag == "Player")
+            friendlyNPCController.StartInteraction(true);
     }
 
     void OnTriggerExit(Collider other)
     {
-        friendlyNPCController.StartInteraction(false);
+        if (other.gameObject.tag == "Player")
+            friendlyNPCController.StartInteraction(false);
     }
 }

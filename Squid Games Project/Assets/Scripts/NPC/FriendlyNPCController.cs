@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -5,14 +6,14 @@ using UnityEngine;
 
 public class FriendlyNPCController : MonoBehaviour
 {
-    public string[] roomDialogue = new string[5];
+    public List<string> roomDialogue = new List<string>();
     public TextMeshProUGUI uiText;
     public Canvas uiCanvas;
-    public GameManager gameManager;
     public GameObject playerCam;
     public Animator animator;
     bool isInteracting;
-    
+    [NonSerialized] public int dialogue_index = 0;
+
     private void Start()
     {
         if (roomDialogue == null)
@@ -21,9 +22,9 @@ public class FriendlyNPCController : MonoBehaviour
             return;
         }
         uiCanvas.gameObject.SetActive(false);
-       
+
     }
-    
+
     private void Update()
     {
         BillboardEffect(uiCanvas.gameObject);
@@ -43,7 +44,7 @@ public class FriendlyNPCController : MonoBehaviour
         animator.SetBool("Start", inZone);
         if (inZone)
         {
-            SetDialogue(roomDialogue[0]);
+            SetDialogue(roomDialogue[dialogue_index]);
             uiCanvas.gameObject.SetActive(true);
         }
         if (!isInteracting)
@@ -51,12 +52,31 @@ public class FriendlyNPCController : MonoBehaviour
             SetDialogue("");
             uiCanvas.gameObject.SetActive(false);
         }
-       
+
     }
 
     public void SetDialogue(string line)
     {
         uiText.text = line;
 
+    }
+
+    public void ContinueDialogue()
+    {
+        Debug.Log("Clicked Button");
+        dialogue_index += 1;
+        if (dialogue_index < roomDialogue.Count)
+        {
+            SetDialogue(roomDialogue[dialogue_index]);
+        }
+        else
+        {
+            if (isInteracting)
+            {
+                uiCanvas.gameObject.SetActive(false);
+            }
+            dialogue_index = 0;
+            SetDialogue(roomDialogue[dialogue_index]);
+        }
     }
 }

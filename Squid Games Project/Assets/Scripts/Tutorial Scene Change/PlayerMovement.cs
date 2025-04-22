@@ -6,14 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 2.0f;
     [SerializeField] float rotationSpeed = 200f;
-    [SerializeField] SceneBehavior sceneBehavior;
-    [SerializeField] List<Material> playerColors = new List<Material>(); 
-    public GameObject doorPivot; 
-    
 
-    private bool door_closed = false;
     private Rigidbody rb;
-    private int color_index = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -46,43 +40,6 @@ public class PlayerMovement : MonoBehaviour
         
     }
     
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "levelend")
-        {
-            if (!door_closed)
-            {
-                doorPivot.GetComponent<Animation>().Play("DoorClose");
-                door_closed = true;
-            }
 
-            StartCoroutine(delayEnd());
-
-
-        }
-    }
-
-    private void OnCollisionEnter(Collision other) {
-        if (other.gameObject.tag == "obstacle")
-        {
-            if (color_index == 3)
-            {
-                sceneBehavior.RestartScene();
-            }
-            else
-            {
-                color_index++;
-                GetComponent<MeshRenderer>().material = playerColors[color_index];
-            
-            }
-            
-        }
-    }
-
-    IEnumerator delayEnd()
-    {
-        yield return new WaitForSeconds(5f);
-        sceneBehavior.NextScene(2);
-    }
 }
 

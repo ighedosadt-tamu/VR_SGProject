@@ -149,7 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd1277c7121b4dab9dd3c3fe003cba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  moveSpeed: 10
+  rotationSpeed: 400
   sceneBehavior: {fileID: 0}
   playerColors:
   - {fileID: 2100000, guid: adbb2c13dd5fa41809fb6d946e5379b6, type: 2}
