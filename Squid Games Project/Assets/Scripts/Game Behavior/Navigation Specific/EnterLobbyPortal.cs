@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnterLobbyPortal : MonoBehaviour
 {
-    
     public string currentRoomPortalName = "Morning Portal";
     public GameObject navigationGM;
 

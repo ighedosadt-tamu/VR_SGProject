@@ -16,7 +16,7 @@ public class EnterLobbyPortalDay : MonoBehaviour
             gameManager = GameManager.instance;
             if (interactionGM.GetComponent<InteractionGM>().completedLevel == true)
             {
-                gameManager.SetState(GameManager.State.completedNavigation, true);
+                gameManager.SetState(GameManager.State.completedInteraction, true);
                 
             }
             gameManager.LoadScene(0); // Load lobby scene

@@ -12,12 +12,12 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: Reveille'sReverie
+  companyName: David and Allen
+  productName: Reveille's Reverie
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
-  m_ShowUnitySplashScreen: 0
+  m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 1
@@ -163,8 +163,8 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.DefaultCompany.ReveillesReverie
-    Standalone: com.DefaultCompany.VIZ477Tutorial
+    Android: com.DavidandAllen.ReveillesReverie
+    Standalone: com.David-and-Allen.Reveille-s-Reverie
     iPhone: com.DefaultCompany.VIZ477Tutorial
   buildNumber:
     Standalone: 0
