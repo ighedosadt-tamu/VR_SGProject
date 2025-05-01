@@ -7,7 +7,7 @@ public class HapticGM : MonoBehaviour
     public float timeLimitItemPickup = 180f; // Time limit in seconds to pick up items
     public TMPro.TextMeshProUGUI timerText;
     public TMPro.TextMeshProUGUI resultText;
-    
+    GameManager gameManager;
     public GameObject lobbyPortal;
 
     private float timeRemaining;
@@ -59,6 +59,8 @@ public class HapticGM : MonoBehaviour
         }
         else
         {
+            gameManager = GameManager.instance;
+            gameManager.completedRooms += 1;
             resultText.text = "You escaped the maze!";
         }
 

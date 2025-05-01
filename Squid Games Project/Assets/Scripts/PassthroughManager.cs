@@ -23,6 +23,8 @@ public class PassthroughManager : MonoBehaviour
     public float timeRemaining;
     public bool completedLevel;
 
+    GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +70,8 @@ public class PassthroughManager : MonoBehaviour
         }
         else if (ghostKill.GetGhostCollected() == ghostKill.totalItems)
         {
+            gameManager = GameManager.instance;
+            gameManager.completedRooms += 1;
             ghostKilled = true;
             resultText.text = "Congratulations! All ghosts defeated!";
             completedLevel = true;

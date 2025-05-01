@@ -14,6 +14,7 @@ public class InteractionGM : MonoBehaviour
     private bool roomDone = false;
     private float timeRemaining;
     public bool completedLevel = false;
+    GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +61,8 @@ public class InteractionGM : MonoBehaviour
         }
         else
         {
+            gameManager = GameManager.instance;
+            gameManager.completedRooms += 1;
             roomDone = true;
             Debug.Log("Cognratualions! You fixed the rift!");
             resultText.text = "Congratulations! You fixed the rift!";

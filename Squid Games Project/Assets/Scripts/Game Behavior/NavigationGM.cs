@@ -8,7 +8,7 @@ public class NavigationGM : MonoBehaviour
     public ItemPickup itemPickup;
     public TMPro.TextMeshProUGUI timerText;
     public TMPro.TextMeshProUGUI resultText;
-    
+    GameManager gameManager;
     public GameObject lobbyPortal;
 
     private bool collectedItems = false;
@@ -63,6 +63,8 @@ public class NavigationGM : MonoBehaviour
         }
         else if (itemPickup.GetItemsCollected() == itemPickup.totalItems)
         {
+            gameManager = GameManager.instance;
+            gameManager.completedRooms += 1;
             collectedItems = true;
             Debug.Log("Cognratualions! All items collected!");
             resultText.text = "Congratulations! All items collected!";

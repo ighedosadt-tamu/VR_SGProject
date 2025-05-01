@@ -13,6 +13,7 @@ public class FriendlyNPCController : MonoBehaviour
     public Animator animator;
     bool isInteracting;
     [NonSerialized] public int dialogue_index = 0;
+    GameManager gameManager;
 
     private void Start()
     {
@@ -22,6 +23,14 @@ public class FriendlyNPCController : MonoBehaviour
             return;
         }
         uiCanvas.gameObject.SetActive(false);
+         
+        gameManager = GameManager.instance;
+        if (gameManager.completedRooms == 4)
+        {
+            roomDialogue.Clear();
+            roomDialogue.Add("Congratulations you fixed the dream states!");
+            roomDialogue.Add("Thanks for playing!");
+        }
 
     }
 

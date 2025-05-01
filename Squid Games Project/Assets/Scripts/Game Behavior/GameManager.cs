@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private List<string> sceneNames = new List<string>();
     private Dictionary<string, GameObject> nameToPortal = new Dictionary<string, GameObject>();
+    public int completedRooms = 0;
 
     public enum State
     {
@@ -48,7 +49,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-    
 
     public List<string> GetSceneNames()
     {
@@ -57,8 +57,12 @@ public class GameManager : MonoBehaviour
     
     public void LoadScene(int scene_index)
     {
-         if (scene_index >= 0 && scene_index < sceneNames.Count)
+        if (scene_index >= 0 && scene_index < sceneNames.Count)
         {
+            if (scene_index == 0 )
+            {
+                Debug.Log("Completed Rooms: " + completedRooms);
+            }
             Debug.Log(scene_index);
             SceneManager.LoadSceneAsync(scene_index);
         }

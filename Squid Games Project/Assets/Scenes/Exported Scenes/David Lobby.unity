@@ -3127,12 +3127,24 @@ PrefabInstance:
       value: Friendly NPC Model
       objectReference: {fileID: 0}
     - target: {fileID: 654891549579808330, guid: f464b26ff5eb248a29e7917d1edcf908, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8189652
+      objectReference: {fileID: 0}
+    - target: {fileID: 654891549579808330, guid: f464b26ff5eb248a29e7917d1edcf908, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8189652
+      objectReference: {fileID: 0}
+    - target: {fileID: 654891549579808330, guid: f464b26ff5eb248a29e7917d1edcf908, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8189652
+      objectReference: {fileID: 0}
+    - target: {fileID: 654891549579808330, guid: f464b26ff5eb248a29e7917d1edcf908, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.91
       objectReference: {fileID: 0}
     - target: {fileID: 654891549579808330, guid: f464b26ff5eb248a29e7917d1edcf908, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.256
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 654891549579808330, guid: f464b26ff5eb248a29e7917d1edcf908, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5279,6 +5291,7 @@ MonoBehaviour:
   - {fileID: 1038454496}
   - {fileID: 161337243}
   - {fileID: 1349608384}
+  completedRooms: 0
 --- !u!1 &1228998434
 GameObject:
   m_ObjectHideFlags: 0
