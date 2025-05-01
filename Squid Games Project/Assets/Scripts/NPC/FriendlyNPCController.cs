@@ -9,7 +9,7 @@ public class FriendlyNPCController : MonoBehaviour
     public List<string> roomDialogue = new List<string>();
     public TextMeshProUGUI uiText;
     public Canvas uiCanvas;
-    public GameObject playerCam;
+    public Camera playerCam;
     public Animator animator;
     bool isInteracting;
     [NonSerialized] public int dialogue_index = 0;
@@ -31,7 +31,6 @@ public class FriendlyNPCController : MonoBehaviour
             roomDialogue.Add("Congratulations you fixed the dream states!");
             roomDialogue.Add("Thanks for playing!");
         }
-
     }
 
     private void Update()
@@ -50,7 +49,7 @@ public class FriendlyNPCController : MonoBehaviour
     public void StartInteraction(bool inZone)
     {
         isInteracting = inZone;
-        animator.SetBool("Start", inZone);
+        animator.SetBool("StartTalk", inZone);
         if (inZone)
         {
             SetDialogue(roomDialogue[dialogue_index]);
@@ -83,6 +82,7 @@ public class FriendlyNPCController : MonoBehaviour
             if (isInteracting)
             {
                 uiCanvas.gameObject.SetActive(false);
+                animator.SetBool("StartTalk", false);
             }
             dialogue_index = 0;
             SetDialogue(roomDialogue[dialogue_index]);
