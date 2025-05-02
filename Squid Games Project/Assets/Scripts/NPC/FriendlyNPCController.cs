@@ -41,21 +41,26 @@ public class FriendlyNPCController : MonoBehaviour
 
     private void BillboardEffect(GameObject current_game_object)
     {
-        Vector3 direction = current_game_object.transform.position - playerCam.transform.position;
-        direction.y = 0f; // prevent tilting up/down
-        current_game_object.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+        if(current_game_object != null){
+            Vector3 direction = current_game_object.transform.position - playerCam.transform.position;
+            direction.y = 0f; // prevent tilting up/down
+            current_game_object.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+        }
+        
     }
 
     public void StartInteraction(bool inZone)
     {
         isInteracting = inZone;
-        animator.SetBool("StartTalk", inZone);
-        if (inZone)
+        if(animator != null)
+            animator.SetBool("StartTalk", inZone);
+
+        if (inZone && uiCanvas != null)
         {
             SetDialogue(roomDialogue[dialogue_index]);
             uiCanvas.gameObject.SetActive(true);
         }
-        if (!isInteracting)
+        if (!isInteracting && uiCanvas != null)
         {
             SetDialogue("");
             uiCanvas.gameObject.SetActive(false);
@@ -65,8 +70,8 @@ public class FriendlyNPCController : MonoBehaviour
 
     public void SetDialogue(string line)
     {
-        uiText.text = line;
-
+        if(uiCanvas != null)
+            uiText.text = line;
     }
 
     public void ContinueDialogue()
@@ -81,8 +86,10 @@ public class FriendlyNPCController : MonoBehaviour
         {
             if (isInteracting)
             {
-                uiCanvas.gameObject.SetActive(false);
-                animator.SetBool("StartTalk", false);
+                if(uiCanvas != null)
+                    uiCanvas.gameObject.SetActive(false);
+                if(animator != null)
+                    animator.SetBool("StartTalk", false);
             }
             dialogue_index = 0;
             SetDialogue(roomDialogue[dialogue_index]);

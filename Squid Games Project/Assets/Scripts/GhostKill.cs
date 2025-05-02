@@ -14,7 +14,7 @@ public class GhostKill : MonoBehaviour
     {
         itemsCollected++;
         
-        if (itemsCollected == totalItems)
+        if (itemsCollected == totalItems && ptGM.timeRemaining > 0)
         {
             ptGM.CheckItemPickupTimeLimit();
         }

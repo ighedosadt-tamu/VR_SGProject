@@ -782,6 +782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Friendly NPC (Mixamo)
       objectReference: {fileID: 0}
+    - target: {fileID: 8699652204047898494, guid: be8687fc54e4f764bacd2b12d6c6bf20, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
